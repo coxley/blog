@@ -1,3 +1,7 @@
 [submodule "themes/pulp"]
 	path = themes/pulp
 	url = https://github.com/koirand/pulp/
+[submodule "public"]
+	path = public
+	url = https://github.com/coxley/coxley.github.io.git
+	branch = master
