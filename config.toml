@@ -1,7 +1,7 @@
-baseURL = "https://coxley.github.io/"
+baseURL = "https://coxley.org/"
 languageCode = "en-us"
 title = "Codey Oxley"
-theme = ["slim"]
+theme = ["theme"]
 googleAnalytics = "UA-164601472-1"
 
 [permalinks]
@@ -11,9 +11,6 @@ googleAnalytics = "UA-164601472-1"
   Subtitle = ""
   GithubID = "coxley"
   AnalyticsID = "UA-164601472-1"
-  # DisqusShortname = "Your Disqus shortname"
-  Summary = false
-  Content = false
   mainSections = ["post"]
 
 [markup]

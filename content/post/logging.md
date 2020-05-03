@@ -15,7 +15,7 @@ Like modules, loggers are hierarchical. Their names should follow the import pat
 
 Follow this guideline for both libraries and CLI entry-points. Technically the name of `__main__`'s logger doesn’t matter, but inconsistencies tend to spread.
 
-```python
+```
 # Module: foo/bar/baz.py
 
 # GOOD: These are equivalent. Use the first one.
@@ -44,7 +44,7 @@ As a refresher, these settings are available to loggers:
 * Handlers
 * Filters
 
-Log names, split by period, make up the hierarchy. When logs are issued, they bubble up, visiting each handler, unless stopped by a filter. Or the minimum level.
+Log names, split by period, make up the hierarchy. When logs are issued, they bubble up, visiting each handler, unless stopped by a filter. Or the minimum level. ([Details](https://docs.python.org/3/howto/logging.html#logging-flow))
 
 This makes it handy to do things like:
 
@@ -55,7 +55,7 @@ This makes it handy to do things like:
 
 Let’s demonstrate how this works:
 
-```python
+```
 import logging
 
 # Set up silly handler that prints a name it's given when a log arrives
@@ -68,8 +68,9 @@ class DumbHandler(logging.Handler):
         print(f"{self.title}: {record.getMessage()}")
 
 
-logging.root == logging.getLogger('')  # True
-logging.root.setLevel(logging.DEBUG)   # Default level is WARNING
+# True
+logging.root == logging.getLogger('')
+logging.root.setLevel(logging.DEBUG)
 
 logging.root.addHandler(DumbHandler('root'))
 logging.getLogger('project.foo').addHandler(DumbHandler('project.foo'))
@@ -90,7 +91,7 @@ logging.getLogger('project.foo.bar').info('test')
 
 All calls to `logging.getLogger(name)` will return the same logger instance. Storing in an instance variable pollutes the logging call-site — which should be frequent!
 
-```python
+```
 # GOOD: At module level after imports
 LOG = logging.getLogger(__name__)
 def foo():
@@ -121,7 +122,9 @@ It optimizes for:
 * Fewest number of Handlers (1)
 * No changes at logging call-site
 
-```python
+.
+
+```
 """
 Use `contextvars` to share metadata with your log handler.
 
@@ -196,7 +199,7 @@ For every log issued, all handlers are run serially in the same thread as the ca
 A project I worked on did this once. Jobs that landed in Europe took significantly longer to run. We figured out it was due to 500-1000ms round-trips for each log message.
 
 
-```python
+```
 import logging
 import threading
 from queue import Queue
@@ -247,7 +250,7 @@ For `asyncio` in the flusher thread, [use `janus.Queue`](https://github.com/aio-
 
 When logs print more than once, there are too many `StreamHandlers` attached. Use `logging.removeHandler` for a deterministic starting point.
 
-```python
+```
 for h in logging.root.handlers:
   if (
     isinstance(h, logging.StreamHandler) and
