@@ -1,6 +1,6 @@
 baseURL = "https://coxley.org/"
 languageCode = "en-us"
-title = "Codey Oxley"
+title = "coxley"
 theme = ["theme"]
 googleAnalytics = "UA-164601472-1"
 
@@ -10,6 +10,7 @@ googleAnalytics = "UA-164601472-1"
 [params]
   Subtitle = ""
   GithubID = "coxley"
+  IndexTitle = "Codey Oxley"
   AnalyticsID = "UA-164601472-1"
   mainSections = ["post"]
 
