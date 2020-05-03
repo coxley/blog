@@ -1,8 +1,7 @@
 build:
 	# Build the project.
-	hugo -t theme
+	hugo
 	cd public
 	git add .
 	git commit -m "rebuilding site $(date)"
-	git push -u origin master
-	cd ..
+	git push -u origin HEAD
