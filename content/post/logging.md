@@ -15,7 +15,7 @@ Like modules, loggers are hierarchical. Their names should follow the import pat
 
 Follow this guideline for both libraries and CLI entry-points. Technically the name of `__main__`'s logger doesn’t matter, but inconsistencies tend to spread.
 
-```
+```python
 # Module: foo/bar/baz.py
 
 # GOOD: These are equivalent. Use the first one.
@@ -55,7 +55,7 @@ This makes it handy to do things like:
 
 Let’s demonstrate how this works:
 
-```
+```python
 import logging
 
 # Set up silly handler that prints a name it's given when a log arrives
@@ -91,7 +91,7 @@ logging.getLogger('project.foo.bar').info('test')
 
 All calls to `logging.getLogger(name)` will return the same logger instance. Storing in an instance variable pollutes the logging call-site — which should be frequent!
 
-```
+```python
 # GOOD: At module level after imports
 LOG = logging.getLogger(__name__)
 def foo():
@@ -124,7 +124,7 @@ It optimizes for:
 
 .
 
-```
+```python
 """
 Use `contextvars` to share metadata with your log handler.
 
@@ -199,7 +199,7 @@ For every log issued, all handlers are run serially in the same thread as the ca
 A project I worked on did this once. Jobs that landed in Europe took significantly longer to run. We figured out it was due to 500-1000ms round-trips for each log message.
 
 
-```
+```python
 import logging
 import threading
 from queue import Queue
@@ -250,7 +250,7 @@ For `asyncio` in the flusher thread, [use `janus.Queue`](https://github.com/aio-
 
 When logs print more than once, there are too many `StreamHandlers` attached. Use `logging.removeHandler` for a deterministic starting point.
 
-```
+```python
 for h in logging.root.handlers:
   if (
     isinstance(h, logging.StreamHandler) and
