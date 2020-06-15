@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2020-06-14T09:48:26-07:00
-url: "/about"
+url: "about"
 draft: true
 ---
 
