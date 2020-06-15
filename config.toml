@@ -10,6 +10,8 @@ googleAnalytics = "UA-164601472-1"
 [params]
   Subtitle = ""
   GithubID = "coxley"
+  AboutURL = "about"
+  # NowURL = "now"
   IndexTitle = "Codey Oxley"
   AnalyticsID = "UA-164601472-1"
   mainSections = ["post"]
