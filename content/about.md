@@ -8,7 +8,7 @@ draft: false
 
 Hey, thanks for reading! My name is Codey Oxley and I'm a programmer.
 
-Reviewing diffs is one of my favorite things to do. I think it's because I like
+Reviewing code is one of my favorite things to do. I think it's because I like
 learning intricacies of systems, and passing them on. But most importantly I
 care about code quality[^1] --- a lot.
 
