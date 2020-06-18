@@ -126,7 +126,7 @@ Speed up review by giving others the caveats and your justification. Include
 benchmarks and data for your arguments. This can save several round trips.
 
 Everything is a trade-off, and talking about them will make your software
-better. Cases can be made for each of these depending on the problem at hand.
+better. Cases are made for each of these depending on the problem at hand.
 
 * Readability vs. Performance
 * Familiarity vs. Perfect Language
